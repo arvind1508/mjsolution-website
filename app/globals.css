@@ -56,6 +56,7 @@ body {
   scroll-behavior: smooth;
   background: var(--page-bg);
   color: var(--text);
+  overflow-x: hidden;
 }
 
 body {
@@ -988,11 +989,25 @@ main {
 }
 
 @media (max-width: 1024px) {
+  main {
+    width: min(1140px, calc(100% - 1.5rem));
+    padding-bottom: 4rem;
+  }
+
+  .section {
+    margin-top: 3rem;
+  }
+
   .about-grid,
   .planning-grid,
   .split-grid,
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .work-track,
+  .gallery-view {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .client-list {
@@ -1003,20 +1018,52 @@ main {
 @media (max-width: 760px) {
   main {
     width: min(1140px, calc(100% - 1rem));
+    padding-top: 0.8rem;
+    padding-bottom: 5rem;
+  }
+
+  .section {
+    margin-top: 2.4rem;
   }
 
   .hero {
-    min-height: 72vh;
-    border-radius: 18px;
+    min-height: auto;
+    border-radius: 16px;
+    padding: 1rem 0.9rem;
   }
 
   .top-nav {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.7rem;
+  }
+
+  .menu {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.2rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .menu a,
+  .menu button {
+    white-space: nowrap;
   }
 
   .hero-copy {
     padding-top: clamp(2.8rem, 7vh, 4.2rem);
+    padding-bottom: 0.6rem;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.8rem, 10vw, 2.6rem);
+    line-height: 1.05;
+  }
+
+  .hero-copy p {
+    font-size: 0.95rem;
   }
 
   .hero-glow {
@@ -1025,9 +1072,30 @@ main {
     filter: blur(30px);
   }
 
-  .work-thumbs,
-  .client-list {
+  .btn {
+    min-height: 44px;
+  }
+
+  .hero-cta {
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .hero-badges span {
+    font-size: 0.7rem;
+  }
+
+  .work-thumbs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .client-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .work-showcase {
@@ -1037,10 +1105,11 @@ main {
   .work-track,
   .gallery-view {
     grid-template-columns: 1fr;
+    gap: 0.7rem;
   }
 
   .project-card {
-    min-height: 380px;
+    min-height: 280px;
   }
 
   .work-nav-btn {
@@ -1060,20 +1129,106 @@ main {
 
   .work-modal-visual {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 
   .work-modal-arrow {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.35rem;
+  }
+
+  .work-modal {
+    padding: 0.85rem;
+    max-height: 94vh;
+  }
+
+  .work-modal-head {
+    padding-bottom: 0.55rem;
+  }
+
+  .work-modal-counter {
+    margin-top: 0.45rem;
+  }
+
+  .work-modal .work-thumbs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .corner-accent {
     display: none;
   }
 
+  .contact {
+    padding: 1rem;
+  }
+
+  .contact-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-actions .btn {
+    width: 100%;
+  }
+
   .floating-call {
     right: 0.7rem;
     bottom: 0.7rem;
+    padding: 0.72rem 0.92rem;
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .eyebrow {
+    letter-spacing: 0.14em;
+    font-size: 0.7rem;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.3rem, 8vw, 1.75rem);
+    line-height: 1.16;
+  }
+
+  .info-card,
+  .service-group,
+  .expertise-card {
+    padding: 0.9rem;
+  }
+
+  .project-overlay {
+    padding: 0.8rem;
+  }
+
+  .project-overlay h3 {
+    font-size: 0.96rem;
+  }
+
+  .project-overlay p {
+    font-size: 0.8rem;
+    margin-top: 0.24rem;
+  }
+
+  .work-category-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+  }
+
+  .work-filter-btn {
+    white-space: nowrap;
+    min-height: 40px;
+  }
+
+  .client-list {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-call {
+    left: 0.7rem;
+    right: 0.7rem;
+    text-align: center;
   }
 }
 
