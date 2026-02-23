@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-labelledby="title desc">
+  <title id="title">300x300 Placeholder</title>
+  <desc id="desc">Square placeholder for project image</desc>
+  <rect width="300" height="300" fill="#f0f2f5"/>
+  <rect x="12" y="12" width="276" height="276" fill="#ffffff" stroke="#b9c0cc" stroke-width="3"/>
+  <line x1="55" y1="55" x2="245" y2="245" stroke="#8f97a6" stroke-width="8"/>
+  <line x1="245" y1="55" x2="55" y2="245" stroke="#8f97a6" stroke-width="8"/>
+  <text x="150" y="282" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4b5361">300 x 300</text>
+</svg>
