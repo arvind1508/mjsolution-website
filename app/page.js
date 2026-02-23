@@ -173,6 +173,9 @@ const contact = {
   email: "mjsolution247@gmail.com",
 };
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const assetUrl = (path) => `${BASE_PATH}${path}`;
+
 export default function HomePage() {
   const [theme, setTheme] = useState("dark");
   const [activeCategory, setActiveCategory] = useState("All");
@@ -241,7 +244,7 @@ export default function HomePage() {
       "@type": "LocalBusiness",
       name: "MJ Solutions",
       description: "Transforming spaces for future.",
-      image: "https://example.com/brand-hero.png",
+      image: assetUrl("/gallery/project-03.jpg"),
       telephone: contact.phones,
       email: contact.email,
       address: {
@@ -497,7 +500,7 @@ export default function HomePage() {
               const projectIndex = projectHighlights.findIndex((item) => item.title === project.title);
               return (
                 <article key={project.title} className="project-card">
-                  <img src={project.images[0].src} alt={project.title} loading="lazy" />
+                  <img src={assetUrl(project.images[0].src)} alt={project.title} loading="lazy" />
                   <div className="project-overlay">
                     <h3>{project.title}</h3>
                     <p>{project.category}</p>
@@ -550,7 +553,7 @@ export default function HomePage() {
                 </button>
                 <figure className="work-hero-image">
                   <img
-                    src={activeProject.images[activeGalleryIndex].src}
+                    src={assetUrl(activeProject.images[activeGalleryIndex].src)}
                     alt={activeProject.images[activeGalleryIndex].title}
                   />
                   <figcaption>{activeProject.images[activeGalleryIndex].title}</figcaption>
@@ -596,7 +599,7 @@ export default function HomePage() {
                     onClick={() => setActiveGalleryIndex(index)}
                     aria-label={`Open ${img.title}`}
                   >
-                    <img src={img.src} alt={img.title} loading="lazy" />
+                    <img src={assetUrl(img.src)} alt={img.title} loading="lazy" />
                   </button>
                 ))}
               </div>
