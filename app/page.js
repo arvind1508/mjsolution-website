@@ -173,7 +173,7 @@ const contact = {
   email: "mjsolution247@gmail.com",
 };
 
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "/mjsolution-website";
 const assetUrl = (path) => `${BASE_PATH}${path}`;
 
 export default function HomePage() {
