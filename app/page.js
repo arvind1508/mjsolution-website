@@ -177,25 +177,10 @@ const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "/mjsolution-website";
 const assetUrl = (path) => `${BASE_PATH}${path}`;
 
 export default function HomePage() {
-  const [theme, setTheme] = useState("dark");
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-
-  useEffect(() => {
-    const saved = window.localStorage.getItem("theme");
-    const nextTheme = saved || "dark";
-    setTheme(nextTheme);
-    document.documentElement.setAttribute("data-theme", nextTheme);
-  }, []);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    document.documentElement.setAttribute("data-theme", nextTheme);
-    window.localStorage.setItem("theme", nextTheme);
-  };
 
   const workCategories = ["All", ...new Set(projectHighlights.map((project) => project.category))];
   const filteredProjects =
@@ -285,9 +270,6 @@ export default function HomePage() {
                   {link.label}
                 </a>
               ))}
-              <button type="button" className="theme-toggle" onClick={toggleTheme}>
-                {theme === "dark" ? "Light" : "Dark"}
-              </button>
             </nav>
           </header>
 
