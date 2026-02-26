@@ -169,7 +169,6 @@ const projectHighlights = [
 const contact = {
   office:
     "GROUND FLOOR, Flat No-2, Bela Court 2, SBS Road, Near Fire Brigade, Colaba, Mumbai, Maharashtra, 400005",
-  phones: ["+919967511210", "+919819112929"],
   email: "mjsolution247@gmail.com",
 };
 
@@ -230,7 +229,6 @@ export default function HomePage() {
       name: "MJ Solutions",
       description: "Transforming spaces for future.",
       image: assetUrl("/gallery/project-03.jpg"),
-      telephone: contact.phones,
       email: contact.email,
       address: {
         "@type": "PostalAddress",
@@ -281,19 +279,8 @@ export default function HomePage() {
               contracting with turnkey execution.
             </p>
             <div className="hero-cta reveal reveal-4">
-              <a className="btn btn-primary" href={`tel:${contact.phones[0]}`}>
-                Call Now
-              </a>
-              <a className="btn btn-outline" href={`mailto:${contact.email}`}>
+              <a className="btn btn-primary" href={`mailto:${contact.email}`}>
                 Email Us
-              </a>
-              <a
-                className="btn btn-ghost"
-                href={`https://wa.me/${contact.phones[0].replace(/\D/g, "")}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                WhatsApp
               </a>
             </div>
             <div className="hero-badges reveal reveal-5">
@@ -610,35 +597,17 @@ export default function HomePage() {
               <strong>Office Address:</strong> {contact.office}
             </p>
             <p>
-              <strong>Phone Number:</strong> {contact.phones.join("  |  ")}
-            </p>
-            <p>
               <strong>Email Address:</strong> {contact.email}
             </p>
           </div>
 
           <div className="contact-actions">
-            <a className="btn btn-primary" href={`tel:${contact.phones[0]}`}>
-              Call {contact.phones[0]}
-            </a>
-            <a className="btn btn-outline" href={`mailto:${contact.email}`}>
+            <a className="btn btn-primary" href={`mailto:${contact.email}`}>
               {contact.email}
-            </a>
-            <a
-              className="btn btn-ghost"
-              href={`https://wa.me/${contact.phones[0].replace(/\D/g, "")}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              WhatsApp Fast Chat
             </a>
           </div>
         </section>
       </main>
-
-      <a className="floating-call" href={`tel:${contact.phones[0]}`}>
-        Call Now
-      </a>
     </>
   );
 }
