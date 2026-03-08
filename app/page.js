@@ -81,7 +81,33 @@ const serviceGroups = [
   },
 ];
 
-const trustedClients = ["IndusInd Bank", "Tata", "Tata Power", "Flipspaces", "Livspace"];
+const trustedClients = [
+  {
+    name: "IndusInd Bank",
+    website: "https://www.indusind.bank.in/",
+    logo: "https://www.indusind.bank.in/favicon.ico",
+  },
+  {
+    name: "Tata",
+    website: "https://www.tata.com/",
+    logo: "https://www.tata.com/favicon.ico",
+  },
+  {
+    name: "Tata Power",
+    website: "https://www.tatapower.com/",
+    logo: "https://www.tatapower.com/favicon.ico",
+  },
+  {
+    name: "Flipspaces",
+    website: "https://www.flipspaces.com/",
+    logo: "https://www.flipspaces.com/favicon.ico",
+  },
+  {
+    name: "Livspace",
+    website: "https://www.livspace.com/",
+    logo: "https://www.livspace.com/favicon.ico",
+  },
+];
 
 const projectHighlights = [
   {
@@ -172,8 +198,9 @@ const contact = {
   email: "mjsolution247@gmail.com",
 };
 
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "/mjsolution-website";
-const assetUrl = (path) => `${BASE_PATH}${path}`;
+const rawBasePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const BASE_PATH = rawBasePath ? `/${rawBasePath.replace(/^\/+|\/+$/g, "")}` : "";
+const assetUrl = (path) => `${BASE_PATH}${path.startsWith("/") ? path : `/${path}`}`;
 
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -583,7 +610,17 @@ export default function HomePage() {
           </div>
           <div className="client-list">
             {trustedClients.map((client) => (
-              <span key={client}>{client}</span>
+              <a
+                key={client.name}
+                className="client-card"
+                href={client.website}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={client.name}
+              >
+                <img src={client.logo} alt={`${client.name} logo`} loading="lazy" />
+                <span>{client.name}</span>
+              </a>
             ))}
           </div>
         </section>

@@ -10,5 +10,16 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
-# mjsolution-website
 
+## Static export
+
+```bash
+npm run build
+```
+
+Deploy the generated `out/` folder.
+
+## Base path for deploy
+
+- Root domain deploy (for `https://mjsolution.in`): do not set `NEXT_PUBLIC_BASE_PATH`.
+- Subfolder deploy (example `https://example.com/mjsolution-website`): set `NEXT_PUBLIC_BASE_PATH=/mjsolution-website` before `npm run build`.

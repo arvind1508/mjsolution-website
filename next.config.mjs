@@ -1,5 +1,8 @@
 const isProd = process.env.NODE_ENV === "production";
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const rawBasePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const normalizedBasePath = rawBasePath
+  ? `/${rawBasePath.replace(/^\/+|\/+$/g, "")}`
+  : "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,8 +10,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isProd ? basePath : "",
-  assetPrefix: isProd && basePath ? `${basePath}/` : "",
+  basePath: isProd ? normalizedBasePath : "",
+  assetPrefix: isProd && normalizedBasePath ? `${normalizedBasePath}/` : "",
 };
 
 export default nextConfig;
